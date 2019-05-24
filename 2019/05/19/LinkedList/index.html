@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2018/12/13/160_statement.png">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png">
-<meta property="og:updated_time" content="2019-05-24T13:44:06.201Z">
+<meta property="og:updated_time" content="2019-05-24T14:03:27.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode -- Linked List (Part 1)">
 <meta name="twitter:description" content="Leetcode 876 Middle of the Linked ListGiven a non-empty, singly linked list with head node head, return a middle node of linked list. If there are two middle nodes, return the second middle node.">
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-24 21:44:06" itemprop="dateModified" datetime="2019-05-24T21:44:06+08:00">2019-05-24</time>
+                <time title="Modified: 2019-05-24 22:03:27" itemprop="dateModified" datetime="2019-05-24T22:03:27+08:00">2019-05-24</time>
               
             
           </span>
@@ -590,9 +590,9 @@
 <p>Time Complexity O(m + n)</p>
 <p>Space Complexity O(n)</p>
 <p><strong>Two pointer approach</strong></p>
-<p>Note : If pA and pB  has now  intersaction, they will meet at the end of the  list which is null.</p>
+<p>Note : If pA and pB  has now  intersaction, they will finally meet at the end of the  list which is null.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">getIntersectionNode</span><span class="params">(ListNode headA, ListNode headB)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (headA == <span class="keyword">null</span> || headB == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode pA = headA;</span><br><span class="line">        ListNode pB = headB;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (pA != pB)&#123;</span><br><span class="line">            pA = (pA == <span class="keyword">null</span>) ? headB : pA.next;</span><br><span class="line">            pB = (pB == <span class="keyword">null</span>) ? headA : pB.next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> pA;</span><br><span class="line">    &#125;        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Time CAomplexity O(m + n)</p>
+<p>Time Complexity O(m + n)</p>
 <p>Space Complexity O(1)</p>
 <h2 id="Leetcode-2-Add-Two-Numbers"><a href="#Leetcode-2-Add-Two-Numbers" class="headerlink" title="Leetcode 2 Add Two Numbers"></a>Leetcode 2 Add Two Numbers</h2><p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong> and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
 <p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
