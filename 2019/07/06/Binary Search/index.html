@@ -104,12 +104,13 @@
 <meta property="og:site_name" content="ScottishCat&#39;s Blog">
 <meta property="og:description" content="Binary Search Templateis there any difference bewteen: [l, r+1) [l, r] (l-1, r+1)  and the answer is no if all of them implement: Given a function g(x), returns the smallest x in the given range such">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79ly1g4seeg028lj31q60u04d3.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g4rm0hljyej31nf0u0e6g.jpg">
-<meta property="og:updated_time" content="2019-07-08T06:05:24.723Z">
+<meta property="og:updated_time" content="2019-07-08T06:09:44.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Binary Search">
 <meta name="twitter:description" content="Binary Search Templateis there any difference bewteen: [l, r+1) [l, r] (l-1, r+1)  and the answer is no if all of them implement: Given a function g(x), returns the smallest x in the given range such">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g4rm0hljyej31nf0u0e6g.jpg">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79ly1g4seeg028lj31q60u04d3.jpg">
 
 
 
@@ -410,7 +411,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-08 14:05:24" itemprop="dateModified" datetime="2019-07-08T14:05:24+08:00">2019-07-08</time>
+                <time title="Modified: 2019-07-08 14:09:44" itemprop="dateModified" datetime="2019-07-08T14:09:44+08:00">2019-07-08</time>
               
             
           </span>
@@ -495,7 +496,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [3,3,7,7,10,11,11]</span><br><span class="line">Output: 10</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNonDuplicate</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> pair = (mid % <span class="number">2</span> == <span class="number">0</span>) ? mid + <span class="number">1</span> : mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (pair &gt;= nums.length || nums[mid] != nums[pair])&#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[left];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p><strong>Explaination</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">First, we get the middle element of the entire array which is called &quot;mid&quot;. If mid is even, then we compare the mid value to mid+1. If they are equal, it means that the number appears only once is on the right and needs to be found in the right half. Because when mid is even, the length of the divided array is even. If mid and mid+1 are equal, then the number of elements in the right half is odd except for mid+1, and the element that appears only once must appear in the right half. Similarly we can handle</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g4seeg028lj31q60u04d3.jpg" alt></p>
+<p>First, we get the middle element of the entire array which is called “mid”. If mid is even, then we compare the mid value to mid+1. If they are equal, it means that the number appears only once is on the right and needs to be found in the right half. Because when mid is even, the length of the divided array is even. If mid and mid+1 are equal, then the number of elements in the right half is odd except for mid+1, and the element that appears only once must appear in the right half. Similarly, we can handle the case when the mid is odd.</p>
 <h1 id="Example-4-My-Calendar-I"><a href="#Example-4-My-Calendar-I" class="headerlink" title="Example 4 My Calendar I"></a>Example 4 My Calendar I</h1><p>Implement a <code>MyCalendar</code> class to store your events. A new event can be added if adding the event will not cause a double booking.</p>
 <p>Your class will have the method, <code>book(int start, int end)</code>. Formally, this represents a booking on the half open interval <code>[start, end)</code>, the range of real numbers <code>x</code> such that <code>start &lt;= x &lt; end</code>.</p>
 <p>A <em>double booking</em> happens when two events have some non-empty intersection (ie., there is some time that is common to both events.)</p>
