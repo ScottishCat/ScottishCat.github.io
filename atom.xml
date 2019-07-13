@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-08T14:21:40.856Z</updated>
+  <updated>2019-07-13T03:57:36.937Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Fenwick Tree</title>
+    <link href="http://yoursite.com/2019/07/13/Fenwick%20Tree/"/>
+    <id>http://yoursite.com/2019/07/13/Fenwick Tree/</id>
+    <published>2019-07-13T02:47:38.000Z</published>
+    <updated>2019-07-13T03:57:36.937Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Why-we-need-Fenwick-Tree"><a href="#Why-we-need-Fenwick-Tree" class="headerlink" title="Why we need Fenwick Tree"></a>Why we need Fenwick Tree</h1><p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g4y0vq3a5nj32680t0kap.jpg" alt></p><p><strong>The binary representation of a number</strong></p><p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g4y0yq916kj320a0re4ck.jpg" alt></p><p><strong>We can devide the total range sum into different partitions and the length of each partition is n power of 2. The length can be represented by lowerbit of a number’s binary representation.</strong></p><a id="more"></a><p><strong>First, let’s pre-calculate the sum of ranges starting from first index with length of 1, 2, 4 and 8 </strong></p><p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g4y16cpbwkj31o40bq0z9.jpg" alt></p><p><strong>As we can see, there’re still many vacant positions to fill.</strong></p><p><strong>Now, we start to pre-calculated the sum of ranges starting from third index which has only one element in it.</strong></p><p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4y1d6f5ooj31ng0fi45r.jpg" alt></p><p><strong>Similarly we do the pre-calculation for other vacant positions. When we finished our work, we should get a tree like data structure like this</strong></p><p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g4y1g8v2cpj31nc0jsgxv.jpg" alt></p><p><strong>If we we want to calculate the sum of range(1, 13), we can add the nodes from leaf to root</strong></p><p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g4y1p1ypczj31na0jswq3.jpg" alt></p><p><strong>The ‘go up and left’ function is implemented by using bit operations. The leaf index is 13 which is is <em>01101</em> in binary representation,  we filp the rightmost <em>1</em> and we get the index 12 (<em>01100</em>)</strong>.</p><p><strong>The <em>flip</em> function is easy to implement:       i -= i &amp; (-i) </strong></p><p><strong>Here’s the code for calculating the sum from index 1 to index i</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span>[] Array, <span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        sum += Array[i];</span><br><span class="line">        i -= i &amp; (-i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>The most imortant property is that the time complexity of update operation is only O(logN). So now let’s see how Fenwick Tree updates itself.  </strong></p><p><strong>Let’s say we want to add 2 to the fifth element, we need to update all nodes whose range includes the fifth element. We start from node(5) itself and ‘go up and right’ to the root. When we finished, our tree should looks like this</strong> </p><p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g4y24gd3x7j31mq0k8wq0.jpg" alt></p><p><strong>Similarly, the ‘up and right’ function can be implemented by bit operation:      i += i &amp; (-i)</strong></p><p><strong>Here’s the code for updating the Fenwick Tree</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span>[] Array, <span class="keyword">int</span> i, <span class="keyword">int</span> delta)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; Array.length)&#123;</span><br><span class="line">        Array[i] += delta;</span><br><span class="line">        i += i &amp; (-i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>Note that Fenwick Tree starts from index 1, so we need to create a ‘tree’ with length <em>n+1</em></strong>.</p><p><strong>To create a Fenwick Tree, we need to call <em>update()</em> for each element in the original array, so the time complexity of creating a new Fenwick Tree is O(NlogN), which requires more time than creating a prefix array. </strong></p><p><strong>Fenwick Tree is usually used to calculate the arithmetic result (product, sum, but not min and max) of  several elements in a certain range.</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Why-we-need-Fenwick-Tree&quot;&gt;&lt;a href=&quot;#Why-we-need-Fenwick-Tree&quot; class=&quot;headerlink&quot; title=&quot;Why we need Fenwick Tree&quot;&gt;&lt;/a&gt;Why we need Fenwick Tree&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/006tNc79ly1g4y0vq3a5nj32680t0kap.jpg&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The binary representation of a number&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/006tNc79ly1g4y0yq916kj320a0re4ck.jpg&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We can devide the total range sum into different partitions and the length of each partition is n power of 2. The length can be represented by lowerbit of a number’s binary representation.&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://yoursite.com/categories/Algorithm/"/>
+    
+    
+      <category term="Algorithm" scheme="http://yoursite.com/tags/Algorithm/"/>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>Binary Search</title>
