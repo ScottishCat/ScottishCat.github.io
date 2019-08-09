@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-14T01:54:02.149Z</updated>
+  <updated>2019-07-22T02:58:03.722Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Softmax</title>
+    <link href="http://yoursite.com/2019/07/22/Softmax/"/>
+    <id>http://yoursite.com/2019/07/22/Softmax/</id>
+    <published>2019-07-22T02:52:40.000Z</published>
+    <updated>2019-07-22T02:58:03.722Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="What-is-Softmax"><a href="#What-is-Softmax" class="headerlink" title="What is Softmax ?"></a>What is Softmax ?</h1><p>Soft max</p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;What-is-Softmax&quot;&gt;&lt;a href=&quot;#What-is-Softmax&quot; class=&quot;headerlink&quot; title=&quot;What is Softmax ?&quot;&gt;&lt;/a&gt;What is Softmax ?&lt;/h1&gt;&lt;p&gt;Soft max&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://yoursite.com/categories/Machine-Learning/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Fenwick Tree</title>
